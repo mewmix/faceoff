@@ -50,12 +50,12 @@ def GetTweets():
     api = tweepy.API(auth)
 
     # anything that will return a lot of results
-    search = ['the', 'and', 'a', 'but', 'lol']
+    search = ['to:@Frances_Coppola ', '@Frances_Coppola']
     term = random.randint(0, len(search)-1)
 
     # set this for how many results you want to get from Twitter (1-100)
     # Twitter API rate info: https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.html
-    results_to_get = 10
+    results_to_get = 100
 
     for tweet in tweepy.Cursor(api.search, q=search[term], lang="en").items(results_to_get):
         tweet_json = json.loads(json.dumps(tweet._json))
